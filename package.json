@@ -1,0 +1,32 @@
+{
+  "name": "finance_buddy",
+  "version": "1.0.0",
+  "description": "Mutual funds chat bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NarayanCheerla/finance-hub.git"
+  },
+  "keywords": [
+    "finance",
+    "hub",
+    "telegram",
+    "webhook",
+    "fulfillment",
+    "dialogflow",
+    "ES",
+    "node",
+    "chatbot",
+    "express",
+    "chatbot"
+  ],
+  "author": "CNR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NarayanCheerla/finance-hub/issues"
+  },
+  "homepage": "https://github.com/NarayanCheerla/finance-hub#readme"
+}
