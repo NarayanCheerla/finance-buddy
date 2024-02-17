@@ -4,15 +4,16 @@
   "description": "Mutual funds chat bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --watch src/index.js",
+    "tunnel": "ngrok http 8080"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NarayanCheerla/finance-hub.git"
+    "url": "git+https://github.com/NarayanCheerla/finance-buddy.git"
   },
   "keywords": [
     "finance",
-    "hub",
+    "buddy",
     "telegram",
     "webhook",
     "fulfillment",
@@ -25,8 +26,17 @@
   ],
   "author": "CNR",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NarayanCheerla/finance-hub/issues"
+  "dependencies": {
+    "actions-on-google":"^2.2.0",
+    "body-parser": "1.18.3",
+    "dialogflow-fulfillment": "^0.4.1",
+    "express" : "^4.16.3"
   },
-  "homepage": "https://github.com/NarayanCheerla/finance-hub#readme"
+  "devDependencies": {
+    "ngrok": "^5.0.0-beta.2"
+  },
+  "bugs": {
+    "url": "https://github.com/NarayanCheerla/finance-buddy/issues"
+  },
+  "homepage": "https://github.com/NarayanCheerla/finance-buddy#readme"
 }
