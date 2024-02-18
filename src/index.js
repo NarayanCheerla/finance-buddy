@@ -4,6 +4,9 @@ const {WebhookClient} = require("dialogflow-fulfillment");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+const toCurrency = (number, currency, language = undefined) =>
+  Intl.NumberFormat(language, { style: 'currency', currency: currency }).format(number);
+
 app.get('/', (req, res) => res.send("online"));
 
 app.post('/dialogflow', express.json(), (request, response) => {
@@ -14,7 +17,6 @@ app.post('/dialogflow', express.json(), (request, response) => {
     }
 
     function fundsListIntent(){
-        console.log(JSON.stringify(agent.parameters));
         agent.add(`
         To select ${agent.parameters.category} fund from the below option(s), enter option number
 
@@ -25,7 +27,6 @@ app.post('/dialogflow', express.json(), (request, response) => {
     }
 
     function fundExplorerFundsListFund(){
-        console.log("In fund Explorer FundsListFund intent ",JSON.stringify(agent.parameters));
         if(!agent.parameters.fund){
             agent.add("Please select fund");
             return;
@@ -40,7 +41,8 @@ app.post('/dialogflow', express.json(), (request, response) => {
     }
 
     function serviceIntent() {
-        console.log(agent.parameters.service);
+        const context = {'name': 'global', 'lifespan': 10, 'parameters': {'service': `${agent.parameters.service}`}};
+        agent.setContext(context);
         if(agent.parameters.service === "Fund Explorer") {
             agent.setFollowupEvent("FundExplorerEvent");
         }else{
@@ -54,12 +56,27 @@ app.post('/dialogflow', express.json(), (request, response) => {
     }
 
     function investIntent(){
-        agent.setFollowupEvent("MobileNumberEvent")
+        if(!agent.getContext('global').parameters["phone-number"]){
+            agent.setFollowupEvent("MobileNumberEvent");
+        }else{
+            agent.setFollowupEvent("GoodByeEvent");
+        }
+
     }
 
     function mobileNumberIntent(){
-        console.log(JSON.stringify(agent.contexts));
-        agent.add(`Awesome ${agent.parameters["phone-number"]}`);
+        if(agent.getContext("global").parameters.service === "Fund Explorer"){
+            agent.setFollowupEvent("GoodByeEvent");
+        }else if(agent.getContext("global").parameters.service === "Portfolio Valuation") {
+            agent.setFollowupEvent("PortfolioValuationEvent");
+        } else {
+
+        }
+    }
+
+    function portfolioValuationFolio(){
+        console.log(agent.getContext('global').parameters["phone-number"]);
+        agent.add(`Your(${agent.getContext('global').parameters["phone-number"]}) folio ${agent.parameters.Folio} valuation ${toCurrency(Math.round(Math.random() * 10000), "INR")} as on ${new Date().toDateString()}`);
     }
 
     let intentMap = new Map();
@@ -70,6 +87,7 @@ app.post('/dialogflow', express.json(), (request, response) => {
     intentMap.set("MainMenuIntent", mainMenuIntent);
     intentMap.set("InvestIntent", investIntent);
     intentMap.set("MobileNumberIntent - custom",mobileNumberIntent);
+    intentMap.set("PortfolioValuation-Folio",portfolioValuationFolio);
     agent.handleRequest(intentMap);
 });
 
