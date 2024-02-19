@@ -35,7 +35,7 @@ app.post('/dialogflow', express.json(), (request, response) => {
         The investment objective of the scheme is to provide returns thsclosely correspond the details.
         `);
         agent.add(`
-            -Invest
+                -Invest
             -Main menu
         `);
     }
@@ -46,7 +46,7 @@ app.post('/dialogflow', express.json(), (request, response) => {
         if(agent.parameters.service === "Fund Explorer") {
             agent.setFollowupEvent("FundExplorerEvent");
         }else{
-            agent.setFollowupEvent("MobileNumberEvent")
+            agent.setFollowupEvent("NewMobileNoEvent")
         }
         agent.add(`Hi, welcome to service indent from webhook. You have selected ${agent.parameters.service}`);
     }
@@ -95,9 +95,10 @@ app.post('/dialogflow', express.json(), (request, response) => {
     intentMap.set("FundExplorer-FundsList-Fund", fundExplorerFundsListFund);
     intentMap.set("MainMenuIntent", mainMenuIntent);
     intentMap.set("InvestIntent", investIntent);
-    intentMap.set("MobileNumberIntent - custom",mobileNumberIntent);
+    // intentMap.set("MobileNumberIntent - custom",mobileNumberIntent);
     intentMap.set("PortfolioValuation-Folio",portfolioValuationFolio);
     intentMap.set("TransactionHistory",transactionHistory);
+    intentMap.set("NewMobileNoIntent",mobileNumberIntent);
     agent.handleRequest(intentMap);
 });
 
