@@ -70,7 +70,7 @@ app.post('/dialogflow', express.json(), (request, response) => {
         }else if(agent.getContext("global").parameters.service === "Portfolio Valuation") {
             agent.setFollowupEvent("PortfolioValuationEvent");
         } else {
-
+            agent.setFollowupEvent("TransactionHistoryEvent")
         }
     }
 
@@ -79,6 +79,15 @@ app.post('/dialogflow', express.json(), (request, response) => {
         agent.add(`Your(${agent.getContext('global').parameters["phone-number"]}) folio ${agent.parameters.Folio} valuation ${toCurrency(Math.round(Math.random() * 10000), "INR")} as on ${new Date().toDateString()}`);
     }
 
+    function transactionHistory(){
+        agent.add(`Selected Date range ${new Date(agent.parameters.start_data).toDateString()} to ${new Date(agent.parameters.end_date).toDateString()}
+            
+            Tx     Amount   Status
+            01      10000   Success
+            02      29400   Failed
+            03       8849   Pending
+        `);
+    }
     let intentMap = new Map();
     intentMap.set("ServiceIntent", serviceIntent);
     intentMap.set("FundExplorer", fundExplorerIntent);
@@ -88,6 +97,7 @@ app.post('/dialogflow', express.json(), (request, response) => {
     intentMap.set("InvestIntent", investIntent);
     intentMap.set("MobileNumberIntent - custom",mobileNumberIntent);
     intentMap.set("PortfolioValuation-Folio",portfolioValuationFolio);
+    intentMap.set("TransactionHistory",transactionHistory);
     agent.handleRequest(intentMap);
 });
 
