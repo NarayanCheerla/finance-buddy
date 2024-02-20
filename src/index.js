@@ -57,7 +57,7 @@ app.post('/dialogflow', express.json(), (request, response) => {
 
     function investIntent(){
         if(!agent.getContext('global').parameters["phone-number"]){
-            agent.setFollowupEvent("MobileNumberEvent");
+            agent.setFollowupEvent("NewMobileNoEvent");
         }else{
             agent.setFollowupEvent("GoodByeEvent");
         }
@@ -80,14 +80,20 @@ app.post('/dialogflow', express.json(), (request, response) => {
     }
 
     function transactionHistory(){
-        agent.add(`Selected Date range ${new Date(agent.parameters.start_data).toDateString()} to ${new Date(agent.parameters.end_date).toDateString()}
+        agent.add(`Selected Date range ${new Date(agent.parameters.start_date).toDateString()} to ${new Date(agent.parameters.end_date).toDateString()}
             
             Tx     Amount   Status
             01      10000   Success
             02      29400   Failed
             03       8849   Pending
         `);
+        agent.add("Do you want to invest more !");
     }
+
+    function goodByeIntent(){
+        agent.add(`Thank you very much for using our services with mobile no ${agent.getContext('global').parameters["phone-number"]}`);
+    }
+
     let intentMap = new Map();
     intentMap.set("ServiceIntent", serviceIntent);
     intentMap.set("FundExplorer", fundExplorerIntent);
@@ -95,10 +101,10 @@ app.post('/dialogflow', express.json(), (request, response) => {
     intentMap.set("FundExplorer-FundsList-Fund", fundExplorerFundsListFund);
     intentMap.set("MainMenuIntent", mainMenuIntent);
     intentMap.set("InvestIntent", investIntent);
-    // intentMap.set("MobileNumberIntent - custom",mobileNumberIntent);
     intentMap.set("PortfolioValuation-Folio",portfolioValuationFolio);
     intentMap.set("TransactionHistory",transactionHistory);
     intentMap.set("NewMobileNoIntent",mobileNumberIntent);
+    intentMap.set("GoodByeIntent",goodByeIntent);
     agent.handleRequest(intentMap);
 });
 
