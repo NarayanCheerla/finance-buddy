@@ -1,0 +1,137 @@
+[
+  {
+    "id": "e5338ab0-a1d7-4c30-92a4-0992782672af",
+    "data": [
+      {
+        "text": "third",
+        "meta": "@Fund",
+        "alias": "fund",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "eb3df920-b086-440a-aa15-7de803a6c93f",
+    "data": [
+      {
+        "text": "second",
+        "meta": "@Fund",
+        "alias": "fund",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "25641891-2d4c-40b9-aa16-d42da7520a83",
+    "data": [
+      {
+        "text": "first",
+        "meta": "@Fund",
+        "alias": "fund",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "34c83115-db78-42c2-9f15-e7657913873c",
+    "data": [
+      {
+        "text": "three",
+        "meta": "@Fund",
+        "alias": "fund",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 1,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "ff39ead4-737c-4078-a770-986938719f6a",
+    "data": [
+      {
+        "text": "3",
+        "meta": "@Fund",
+        "alias": "fund",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "f465460e-b167-486b-bd46-51325b9d3059",
+    "data": [
+      {
+        "text": "2",
+        "meta": "@Fund",
+        "alias": "fund",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "dfee982e-5c0b-4bd3-8047-674282518612",
+    "data": [
+      {
+        "text": "two",
+        "meta": "@Fund",
+        "alias": "fund",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "7e99ee59-ae2c-4240-bd08-ecc7f36bd530",
+    "data": [
+      {
+        "text": "one",
+        "meta": "@Fund",
+        "alias": "fund",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "6279dc28-59da-4c0c-8959-ed2894c5cc8b",
+    "data": [
+      {
+        "text": "1",
+        "meta": "@Fund",
+        "alias": "fund",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

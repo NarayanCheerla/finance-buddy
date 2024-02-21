@@ -1,0 +1,32 @@
+[
+  {
+    "id": "e6def7dd-7b09-4786-9ed3-b60e413fb698",
+    "data": [
+      {
+        "text": "pan_234",
+        "meta": "@Folio",
+        "alias": "Folio",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "36325bd8-3060-4454-a16a-b53a2e707484",
+    "data": [
+      {
+        "text": "pan_123",
+        "meta": "@Folio",
+        "alias": "Folio",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

@@ -1,0 +1,67 @@
+{
+  "id": "f1fbed0d-e21a-4162-8506-a6240d271b43",
+  "name": "TransactionHistorySuggestions",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "4",
+          "platform": "telegram",
+          "title": "",
+          "payload": {
+            "telegram": {
+              "reply_markup": {
+                "inline_keyboard": [
+                  [
+                    {
+                      "text": "Current Financial Year",
+                      "callback_data": "current_financial_year"
+                    },
+                    {
+                      "callback_data": "last_financial_year",
+                      "text": "Last Financial Year"
+                    },
+                    {
+                      "callback_data": "enter_dates",
+                      "text": "Enter Dates"
+                    }
+                  ]
+                ]
+              },
+              "text": "Please provide a time period"
+            }
+          },
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        },
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "TransactionHistorySuggestionsEvent"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

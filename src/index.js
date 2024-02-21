@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 8080;
 const toCurrency = (number, currency, language = undefined) =>
     Intl.NumberFormat(language, { style: 'currency', currency: currency }).format(number);
 
+const mobileNoPattern = /^([+]\d{2})?\d{10}$/;
 const transactionsList = `
     Tx     Amount   Status
     01      10000   Success
@@ -42,6 +43,7 @@ app.post('/dialogflow', express.json(), (request, response) => {
             return;
         }
         agent.add(`${agent.parameters.fund}
+        
         The investment objective of the scheme is to provide returns thsclosely correspond the details.
 
         -Invest
@@ -66,7 +68,7 @@ app.post('/dialogflow', express.json(), (request, response) => {
 
     function investIntent() {
         if (!agent.getContext('global').parameters["phone-number"]) {
-            agent.setFollowupEvent("NewMobileNoEvent");
+            agent.setFollowupEvent("MobileNoEvent");
         } else {
             agent.setFollowupEvent("GoodByeEvent");
         }

@@ -1,0 +1,60 @@
+{
+  "id": "88992c4e-64a1-479a-9f54-7905be87c3cc",
+  "parentId": "01be69c1-0ff3-4a43-8cc3-2afc722e2aff",
+  "rootParentId": "01be69c1-0ff3-4a43-8cc3-2afc722e2aff",
+  "name": "PortfolioValuation-Folio",
+  "auto": true,
+  "contexts": [
+    "PortfolioValuation-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "PortfolioValuation.PortfolioValuation-custom",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "0a5989cd-ddf9-4c6a-973a-d59dc90b75b5",
+          "name": "Folio",
+          "required": true,
+          "dataType": "@Folio",
+          "value": "$Folio",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please select folio"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "DE: Selected Folio $Folio"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": [],
+  "endInteraction": true
+}

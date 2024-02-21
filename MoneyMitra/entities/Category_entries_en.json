@@ -1,0 +1,23 @@
+[
+  {
+    "value": "equity",
+    "synonyms": [
+      "equity",
+      "Equity"
+    ]
+  },
+  {
+    "value": "debt",
+    "synonyms": [
+      "debt",
+      "Debt"
+    ]
+  },
+  {
+    "value": "hybrid",
+    "synonyms": [
+      "hybrid",
+      "Hybrid"
+    ]
+  }
+]

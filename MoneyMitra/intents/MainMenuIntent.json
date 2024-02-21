@@ -1,0 +1,36 @@
+{
+  "id": "4c672217-6cb8-451c-b24c-1c3f6b125d1d",
+  "parentId": "a1d1974a-1e26-43db-8d11-36f55855a008",
+  "rootParentId": "cb6d4b1d-6f21-4f27-a874-c0b9c5f7ab45",
+  "name": "MainMenuIntent",
+  "auto": true,
+  "contexts": [
+    "FundExplorer-FundsList-Fund-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "FundExplorer.FundExplorer-custom.FundExplorer-FundsList-custom.FundExplorer-FundsList-Fund-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

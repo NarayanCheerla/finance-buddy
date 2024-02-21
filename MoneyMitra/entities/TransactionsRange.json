@@ -1,0 +1,9 @@
+{
+  "id": "2443fa41-610c-49ac-b2bc-77d0303223d1",
+  "name": "TransactionsRange",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "c9ac5d46-6197-4a50-a594-62bf3feb63fd",
+    "data": [
+      {
+        "text": "transaction_history",
+        "meta": "@Service",
+        "alias": "service",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "c212d6ff-96fc-4ba2-b211-fae6b1919d43",
+    "data": [
+      {
+        "text": "fund_explorer",
+        "meta": "@Service",
+        "alias": "service",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "def179a5-5072-43a3-ac66-df3c80755977",
+    "data": [
+      {
+        "text": "portfolio_valuation",
+        "meta": "@Service",
+        "alias": "service",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

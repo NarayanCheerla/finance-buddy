@@ -1,0 +1,9 @@
+{
+  "id": "b71106d9-9e5b-4cee-afa3-17de62d755f2",
+  "name": "Fund",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

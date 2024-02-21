@@ -1,0 +1,47 @@
+[
+  {
+    "id": "5223517f-afe8-40d7-9109-180431c4509b",
+    "data": [
+      {
+        "text": "Enter Dates",
+        "meta": "@TransactionsRange",
+        "alias": "TransactionsRange",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "901eaf53-c29b-48ce-87f8-79f983af38e6",
+    "data": [
+      {
+        "text": "Last Financial Year",
+        "meta": "@TransactionsRange",
+        "alias": "TransactionsRange",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "70596bae-5cf2-4bac-896d-e19fe3ffbf05",
+    "data": [
+      {
+        "text": "Current Financial Year",
+        "meta": "@TransactionsRange",
+        "alias": "TransactionsRange",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

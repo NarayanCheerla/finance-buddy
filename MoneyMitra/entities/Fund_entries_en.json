@@ -1,0 +1,33 @@
+[
+  {
+    "value": "ABC Overnight Fund",
+    "synonyms": [
+      "ABC Overnight Fund",
+      "overnight",
+      "one",
+      "1",
+      "first"
+    ]
+  },
+  {
+    "value": "ABC Liquid Fund",
+    "synonyms": [
+      "ABC Liquid Fund",
+      "liquid",
+      "two",
+      "2",
+      "second"
+    ]
+  },
+  {
+    "value": "ABC Savings Fund",
+    "synonyms": [
+      "ABC Savings Fund",
+      "Savings",
+      "savings",
+      "three",
+      "3",
+      "third"
+    ]
+  }
+]

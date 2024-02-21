@@ -1,0 +1,23 @@
+[
+  {
+    "value": "Current Financial Year",
+    "synonyms": [
+      "Current Financial Year",
+      "current_financial_yera"
+    ]
+  },
+  {
+    "value": "Last Financial Year",
+    "synonyms": [
+      "Last Financial Year",
+      "last_financial_year"
+    ]
+  },
+  {
+    "value": "Enter Dates",
+    "synonyms": [
+      "Enter_Dates",
+      "enter_dates"
+    ]
+  }
+]

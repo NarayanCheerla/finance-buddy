@@ -1,0 +1,36 @@
+{
+  "id": "5818808c-a92e-42dd-b96b-393405343a88",
+  "parentId": "401193a0-cdac-4d9c-99f0-178e47a7ffe9",
+  "rootParentId": "401193a0-cdac-4d9c-99f0-178e47a7ffe9",
+  "name": "TransactionHistory - yes",
+  "auto": true,
+  "contexts": [
+    "TransactionHistory-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "TransactionHistory.TransactionHistory-yes",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

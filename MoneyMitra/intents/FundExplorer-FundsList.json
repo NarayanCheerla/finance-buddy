@@ -1,0 +1,61 @@
+{
+  "id": "e12bcf54-a73b-4e80-90c8-c4341a977789",
+  "parentId": "cb6d4b1d-6f21-4f27-a874-c0b9c5f7ab45",
+  "rootParentId": "cb6d4b1d-6f21-4f27-a874-c0b9c5f7ab45",
+  "name": "FundExplorer-FundsList",
+  "auto": true,
+  "contexts": [
+    "FundExplorer-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "FundExplorer.FundExplorer-custom",
+      "affectedContexts": [
+        {
+          "name": "FundExplorer-FundsList-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "86123c18-12a7-4a6b-82a2-89810c25682b",
+          "name": "category",
+          "required": true,
+          "dataType": "@Category",
+          "value": "$category",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please select fund category"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

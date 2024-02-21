@@ -1,0 +1,47 @@
+[
+  {
+    "id": "058a369b-84f8-4c33-98de-24c480e2cd77",
+    "data": [
+      {
+        "text": "hybrid",
+        "meta": "@Category",
+        "alias": "category",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "8520ff70-fe18-49fa-aa60-b594e62f2a77",
+    "data": [
+      {
+        "text": "debt",
+        "meta": "@Category",
+        "alias": "category",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  },
+  {
+    "id": "0ee04748-9ab8-4ad4-966d-d9cd9e1c5b41",
+    "data": [
+      {
+        "text": "equity",
+        "meta": "@Category",
+        "alias": "category",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "lang": "en",
+    "updated": 0
+  }
+]

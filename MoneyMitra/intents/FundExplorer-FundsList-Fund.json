@@ -1,0 +1,64 @@
+{
+  "id": "a1d1974a-1e26-43db-8d11-36f55855a008",
+  "parentId": "e12bcf54-a73b-4e80-90c8-c4341a977789",
+  "rootParentId": "cb6d4b1d-6f21-4f27-a874-c0b9c5f7ab45",
+  "name": "FundExplorer-FundsList-Fund",
+  "auto": true,
+  "contexts": [
+    "FundExplorer-FundsList-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "FundExplorer.FundExplorer-custom.FundExplorer-FundsList-custom",
+      "affectedContexts": [
+        {
+          "name": "FundExplorer-FundsList-Fund-followup",
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "ccc82c0d-5dc5-4be6-bc44-999cda18369d",
+          "name": "fund",
+          "required": true,
+          "dataType": "@Fund",
+          "value": "$fund",
+          "defaultValue": "",
+          "isList": false,
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "please select correct option"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": []
+        }
+      ],
+      "messages": [
+        {
+          "type": "0",
+          "title": "",
+          "textToSpeech": "",
+          "lang": "en",
+          "speech": [
+            "DY: Selected fund is $fund"
+          ],
+          "condition": ""
+        }
+      ],
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}
