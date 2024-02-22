@@ -1,5 +1,5 @@
 const express = require("express");
-const { WebhookClient } = require("dialogflow-fulfillment");
+const { WebhookClient, Card } = require("dialogflow-fulfillment");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -8,18 +8,22 @@ const toCurrency = (number, currency, language = undefined) =>
     Intl.NumberFormat(language, { style: 'currency', currency: currency }).format(number);
 
 const mobileNoPattern = /^([+]\d{2})?\d{10}$/;
-const transactionsList = `
-    Tx     Amount   Status
-    01      10000   Success
-    02      29400   Failed
-    03       8849   Pending
-`;
 
 const fundsList = `
     Enter 1 ABC Overnight Fund
     Enter 2 ABC Liquid Fund
-    Enter 3 AbC Saving Fund
+    Enter 3 ABC Saving Fund
 `;
+
+const Transaction_List_Card = new Card('Transactions list');
+Transaction_List_Card.setText(`
+   Tx     Amount   Status
+   01      10000   Success
+   02      29400   Failed
+   03       8849   Pending
+   `);
+   
+
 app.get('/', (req, res) => res.send("online"));
 
 app.post('/dialogflow', express.json(), (request, response) => {
@@ -101,9 +105,8 @@ app.post('/dialogflow', express.json(), (request, response) => {
             new Date(agent.parameters.end_date).getTime() > new Date().getTime()) {
             agent.setFollowupEvent("TransactionHistorySuggestionsEvent");
         } else {
-            agent.add(`Selected Date range ${new Date(agent.parameters.start_date).toDateString()} to ${new Date(agent.parameters.end_date).toDateString()}
-            ${transactionsList}
-        `);
+            agent.add(`Selected Date range ${new Date(agent.parameters.start_date).toDateString()} to ${new Date(agent.parameters.end_date).toDateString()}`);
+            agent.add(Transaction_List_Card);
             agent.add("Do you want to invest more !");
         }
     }
@@ -112,9 +115,8 @@ app.post('/dialogflow', express.json(), (request, response) => {
         if (agent.parameters.TransactionsRange === 'Enter Dates') {
             agent.setFollowupEvent("TransactionHistoryEvent");
         } else {
-            agent.add(`Selected Date range ${agent.parameters.TransactionsRange}
-                ${transactionsList}
-            `);
+            agent.add(`Selected Date range ${agent.parameters.TransactionsRange}`);
+            agent.add(Transaction_List_Card);
             agent.add("Do you want to invest more !");
         }
     }

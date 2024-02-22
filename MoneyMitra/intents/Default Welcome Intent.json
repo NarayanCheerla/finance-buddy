@@ -21,16 +21,16 @@
                 "inline_keyboard": [
                   [
                     {
-                      "callback_data": "portfolio_valuation",
-                      "text": "Portfolio Valuation"
+                      "text": "Portfolio Valuation",
+                      "callback_data": "portfolio_valuation"
                     },
                     {
-                      "text": "Fund Explorer",
-                      "callback_data": "fund_explorer"
+                      "callback_data": "fund_explorer",
+                      "text": "Fund Explorer"
                     },
                     {
-                      "callback_data": "transaction_history",
-                      "text": "Transaction History"
+                      "text": "Transaction History",
+                      "callback_data": "transaction_history"
                     }
                   ]
                 ]
