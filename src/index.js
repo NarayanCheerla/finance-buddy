@@ -25,6 +25,38 @@ app.get('/', (req, res) => res.send("online"));
 app.post('/dialogflow', express.json(), (request, response) => {
     const agent = new WebhookClient({ request, response });
 
+    function mainMenuIntent() {
+        agent.setFollowupEvent("Welcome");
+    }
+
+    function serviceIntent() {
+        const context = { 'name': 'global', 'lifespan': 10, 'parameters': { 'service': `${agent.parameters.service}` } };
+        agent.setContext(context);
+        if (agent.parameters.service === "Fund Explorer") {
+            agent.setFollowupEvent("FundExplorerEvent");
+        } else {
+            console.log("coming here ");
+            agent.setFollowupEvent("MobileNoEvent")
+        }
+    }
+
+    function mobileNumberIntent() {
+        const mobileNumber = agent.getContext("global").parameters["phone-number"];
+        console.log(`Mobile no ${mobileNumber}`);
+        if(mobileNumber.match(mobileNoPattern) === null) {
+            agent.getContext("global").parameters["phone-number"] = "";
+            agent.setFollowupEvent("MobileNoEvent");
+        }else {
+            if (agent.getContext("global").parameters.service === "Fund Explorer") {
+                agent.setFollowupEvent("GoodByeEvent");
+            } else if (agent.getContext("global").parameters.service === "Portfolio Valuation") {
+                agent.setFollowupEvent("PortfolioValuationEvent");
+            } else {
+                agent.setFollowupEvent("TransactionHistoryEvent");
+            }
+        }
+    }
+
     function fundExplorerIntent() {
         agent.add("Here are fund categories you can select to view.");
     }
@@ -51,37 +83,11 @@ app.post('/dialogflow', express.json(), (request, response) => {
         `);
     }
 
-    function serviceIntent() {
-        const context = { 'name': 'global', 'lifespan': 10, 'parameters': { 'service': `${agent.parameters.service}` } };
-        agent.setContext(context);
-        if (agent.parameters.service === "Fund Explorer") {
-            agent.setFollowupEvent("FundExplorerEvent");
-        } else {
-            agent.setFollowupEvent("MobileNoEvent")
-        }
-        agent.add(`Hi, welcome to service indent from webhook. You have selected ${agent.parameters.service}`);
-    }
-
-    function mainMenuIntent() {
-        agent.setFollowupEvent("Welcome");
-    }
-
     function investIntent() {
         if (!agent.getContext('global').parameters["phone-number"]) {
             agent.setFollowupEvent("MobileNoEvent");
         } else {
             agent.setFollowupEvent("GoodByeEvent");
-        }
-
-    }
-
-    function mobileNumberIntent() {
-        if (agent.getContext("global").parameters.service === "Fund Explorer") {
-            agent.setFollowupEvent("GoodByeEvent");
-        } else if (agent.getContext("global").parameters.service === "Portfolio Valuation") {
-            agent.setFollowupEvent("PortfolioValuationEvent");
-        } else {
-            agent.setFollowupEvent("TransactionHistoryEvent");
         }
     }
 
@@ -102,10 +108,6 @@ app.post('/dialogflow', express.json(), (request, response) => {
         }
     }
 
-    function goodByeIntent() {
-        agent.add(`Thank you very much for using our services with mobile no ${agent.getContext('global').parameters["phone-number"]}`);
-    }
-
     function transactionsRangeIntent() {
         if (agent.parameters.TransactionsRange === 'Enter Dates') {
             agent.setFollowupEvent("TransactionHistoryEvent");
@@ -121,19 +123,33 @@ app.post('/dialogflow', express.json(), (request, response) => {
         agent.setFollowupEvent("FundExplorerEvent");
     }
 
+    function goodByeIntent() {
+        agent.add(`Thank you very much for using our services with mobile no ${agent.getContext('global').parameters["phone-number"]}`);
+    }
+
     let intentMap = new Map();
+    // Common Intents
+    intentMap.set("MainMenuIntent", mainMenuIntent);
     intentMap.set("ServiceIntent", serviceIntent);
+    intentMap.set("MobileNoIntent", mobileNumberIntent);
+
+    // Fund Explorer Intents
     intentMap.set("FundExplorer", fundExplorerIntent);
     intentMap.set("FundExplorer-FundsList", fundsListIntent);
     intentMap.set("FundExplorer-FundsList-Fund", fundExplorerFundsListFund);
-    intentMap.set("MainMenuIntent", mainMenuIntent);
     intentMap.set("InvestIntent", investIntent);
+  
+    // Portfolio Valuation Intents
     intentMap.set("PortfolioValuation-Folio", portfolioValuationFolio);
+
+    // Transaction History Intents
     intentMap.set("TransactionHistory", transactionHistory);
-    intentMap.set("TransactionHistory - yes", transactionHistoryYes);
-    intentMap.set("MobileNoIntent", mobileNumberIntent);
-    intentMap.set("GoodByeIntent", goodByeIntent);
     intentMap.set("TransactionsRangeIntent", transactionsRangeIntent);
+    intentMap.set("TransactionHistory - yes", transactionHistoryYes);
+
+    // Final Intent
+    intentMap.set("GoodByeIntent", goodByeIntent);
+
     agent.handleRequest(intentMap);
 });
 

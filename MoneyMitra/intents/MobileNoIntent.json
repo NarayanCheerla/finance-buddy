@@ -10,7 +10,7 @@
       "affectedContexts": [],
       "parameters": [
         {
-          "id": "d16d3318-b5c4-489e-82bf-c337046cf05b",
+          "id": "8aec4f35-9cbb-4d50-a3de-3abc56b70d4a",
           "name": "phone-number",
           "required": true,
           "dataType": "@sys.phone-number",
@@ -20,7 +20,7 @@
           "prompts": [
             {
               "lang": "en",
-              "value": "Please enter mobile number"
+              "value": "Please enter your registered mobile number"
             }
           ],
           "promptMessages": [],
@@ -43,7 +43,7 @@
   ],
   "priority": 500000,
   "webhookUsed": true,
-  "webhookForSlotFilling": false,
+  "webhookForSlotFilling": true,
   "fallbackIntent": false,
   "events": [
     {
