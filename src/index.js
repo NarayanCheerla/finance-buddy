@@ -39,14 +39,12 @@ app.post('/dialogflow', express.json(), (request, response) => {
         if (agent.parameters.service === "Fund Explorer") {
             agent.setFollowupEvent("FundExplorerEvent");
         } else {
-            console.log("coming here ");
             agent.setFollowupEvent("MobileNoEvent")
         }
     }
 
     function mobileNumberIntent() {
         const mobileNumber = agent.getContext("global").parameters["phone-number"];
-        console.log(`Mobile no ${mobileNumber}`);
         if(mobileNumber.match(mobileNoPattern) === null) {
             agent.getContext("global").parameters["phone-number"] = "";
             agent.setFollowupEvent("MobileNoEvent");
@@ -96,7 +94,6 @@ app.post('/dialogflow', express.json(), (request, response) => {
     }
 
     function portfolioValuationFolio() {
-        console.log(agent.getContext('global').parameters["phone-number"]);
         agent.add(`Your(${agent.getContext('global').parameters["phone-number"]}) folio ${agent.parameters.Folio} valuation ${toCurrency(Math.round(Math.random() * 10000), "INR")} as on ${new Date().toDateString()}`);
     }
 
